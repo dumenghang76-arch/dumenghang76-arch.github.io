@@ -155,6 +155,7 @@ details.all summary{cursor:pointer;color:var(--muted)}
 .opt.wrong{border-color:var(--bad);box-shadow:0 3px 0 var(--bad);background:color-mix(in srgb,var(--bad) 10%,var(--surface))}
 .opt:disabled{cursor:default}
 .spell{display:flex;gap:10px;flex-wrap:wrap}
+.sp-help{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
 .spell input{flex:1 1 200px;min-width:0;font-family:var(--word);font-size:24px;padding:10px 14px;border:1.5px solid var(--line);border-radius:14px;background:var(--surface);color:var(--ink);letter-spacing:.04em}
 .spell input:focus{outline:none;border-color:var(--clay)}
 .fb{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;border-radius:16px;padding:14px 16px;border:1.5px solid}
@@ -203,6 +204,28 @@ details.all summary{cursor:pointer;color:var(--muted)}
 .explain{display:flex;flex-direction:column;gap:4px;font-size:14px;color:var(--muted)}
 .explain p{margin:0}
 .explain b{color:var(--ink)}
+.zt-filters{display:flex;flex-direction:column;gap:8px}
+.zt-wrap{display:flex;flex-direction:column;gap:14px;min-width:0}
+.zt-list{display:flex;flex-direction:column;gap:14px;min-width:0}
+.tipbox{background:color-mix(in srgb,var(--gold) 10%,var(--surface));border:1.5px solid color-mix(in srgb,var(--gold) 45%,var(--line));border-radius:18px;padding:14px 16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.tips-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.tips-head b{font-size:19px;margin-right:auto}
+.seg.sm button{padding:3px 10px;font-size:13px}
+.tips-toggle{font-size:14px;padding:2px 4px}
+.tipbox:not(.open) .tips-body{display:none}
+.tips-body{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:10px;font-size:14px}
+.tips-body li{display:list-item}
+.tips-body li>*{display:block}
+.tips-body li>span{margin-top:2px}
+.tips-body li::marker{color:var(--clay);font-weight:700}
+.tips-body b{font-size:14px}
+.tips-body .eg{font-family:var(--word);font-size:14px;color:var(--muted);overflow-wrap:anywhere}
+@media (min-width:1060px){
+  .zt-wrap{display:grid;grid-template-columns:minmax(0,1fr) 270px;align-items:start}
+  .tipbox{order:2;position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px);max-height:calc(100vh - 32px);overflow:auto}
+  .tipbox:not(.open) .tips-body{display:flex}
+  .tips-toggle{display:none}
+}
 .zt{gap:16px}
 .zt-head{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
 .tags{display:flex;flex-wrap:wrap;gap:6px}
@@ -428,7 +451,7 @@ paras:[["As a student who has lived on campus for two years, I would like to off
 ["I believe these changes would greatly improve our campus life, and I hope the university will consider them.","我相信这些改变会大大改善我们的校园生活，希望学校能够考虑。"]],
 tips:[["I would like to offer some suggestions on…","我想就……提几点建议，建议类万能开头"],["combine A into B","把 A 整合成 B"],["switch between different websites","在不同网站之间切换"],["meet students' daily needs","满足学生的日常需求"],["Last but not least","最后但同样重要的是"]]},
 
-{type:"作文",exam:"2025年12月",title:"给学生会的建议：丰富课余生活",
+{type:"作文",exam:"2025年12月 第一套",title:"给学生会的建议：丰富课余生活",
 ask:"学生会正在征集意见，希望明年的工作能更好地丰富同学们的课余生活。请写一篇文章回应，提出你的建议。",
 steps:["这是「回应征集」类建议文，第一句要回应对方：我很高兴看到学生会在征集意见。","想建议时从学生的真实需求出发：交朋友、减压、为就业做准备。三条建议覆盖兴趣、心理、发展三个层面，内容不会重复。","每条建议后写一句「为什么这样做有用」，比单纯列活动名称更有说服力。","可以用比较来加深论证，例如小组活动和大型活动比，更容易交到朋友。","结尾回扣题目中的 next year，表达期待。"],
 paras:[["I am glad to learn that the Student Union is collecting ideas for its work next year. Here are my suggestions on how to make our after-class life more colorful.","得知学生会正在为明年的工作征集意见，我很高兴。下面是我关于如何让课余生活更丰富多彩的建议。"],
@@ -467,9 +490,185 @@ ask:"真题话题：袁隆平团队研发的杂交水稻，涉及它的优点、
 src:"杂交水稻是中国农业科学的一项重大成就。上世纪七十年代，袁隆平和他的团队成功培育出杂交水稻，使水稻产量大幅提高。此后，他们不断改进技术，培育出产量更高、抗病能力更强的新品种。如今，杂交水稻已在世界许多国家种植，帮助数以百万计的人解决了吃饭问题。杂交水稻的推广为保障世界粮食安全作出了重要贡献。",
 steps:["先把专有名词准备好：杂交水稻 hybrid rice，品种 variety，产量 yield / output，粮食安全 food security。","「培育出杂交水稻，使水稻产量大幅提高」：后半句是前半句的结果，用 which 引导非限制性定语从句承接，避免写成两个主语。","「此后，他们不断改进」：since then 搭配现在完成时 have kept improving。","「产量更高、抗病能力更强的新品种」：用 with 结构作后置定语，new varieties with higher yields and stronger resistance to disease。","「解决了吃饭问题」：不能直译成 solve the eating problem，意思是「吃饱饭」，译成 get enough food。"],
 answer:"Hybrid rice is a major achievement of China's agricultural science. In the 1970s, Yuan Longping and his team successfully developed hybrid rice, which greatly increased rice output. Since then, they have kept improving the technology and developed new varieties with higher yields and stronger resistance to disease. Today, hybrid rice is grown in many countries around the world, helping millions of people get enough food. The spread of hybrid rice has made an important contribution to world food security.",
-tips:[["hybrid rice","杂交水稻"],["resistance to disease","抗病能力"],["food security","粮食安全"],["make a contribution to","为……作出贡献"],["millions of","数以百万计的"]]}
+tips:[["hybrid rice","杂交水稻"],["resistance to disease","抗病能力"],["food security","粮食安全"],["make a contribution to","为……作出贡献"],["millions of","数以百万计的"]]},
+
+{type:"作文",exam:"2026年6月 第二套",title:"未来校园里的机器人",
+ask:"为校报专刊投稿，谈谈未来机器人会在校园里发挥哪些作用。写作范围限于校园内，可以从学习、日常生活、校园安全等方面展开。",
+steps:["文体是校报投稿，读者是同学，语气可以比议论文轻松一些，还可以加一个标题。","题目限定「校园内」，所以不要写工厂、医院里的机器人。写到校园外就是跑题，会直接降档。","题目给的三个方面正好写成三段：学习、日常生活、安全。每段都写「机器人能做什么 + 对学生有什么好处」。","描述未来用 will / could / may，全文时态保持一致。","结尾回到「让校园生活更美好」，呼应专刊主题。"],
+paras:[["Robots on Our Future Campus","未来校园里的机器人"],
+["Imagine a campus where robots work side by side with students and teachers. With the rapid development of technology, this picture may soon become reality, and robots will play an important role in our campus life.","想象一下，在一个校园里，机器人和师生并肩工作。随着科技的快速发展，这幅画面也许很快就会成为现实，机器人将在我们的校园生活中发挥重要作用。"],
+["First, robots will make learning more personal. A robot tutor could answer our questions at any time, check our homework and suggest exercises based on our weak points.","首先，机器人会让学习更加个性化。机器人辅导员可以随时回答我们的问题、检查作业，并根据我们的薄弱环节推荐练习。"],
+["Second, robots will take care of many daily tasks. They may deliver packages to our dormitories, serve meals in the canteen and help us find books in the library, saving us a great deal of time.","其次，机器人会承担许多日常事务。它们可能会把快递送到宿舍、在食堂送餐、在图书馆帮我们找书，为我们节省大量时间。"],
+["Third, robots will keep our campus safe. Security robots can patrol at night, spot fires or strangers in time and send warnings to the security office.","再次，机器人会守护校园安全。安保机器人可以在夜间巡逻，及时发现火情或陌生人，并向保卫处发出警报。"],
+["In short, robots will not replace the warmth of human contact, but they will certainly make our campus life more convenient, efficient and secure.","总之，机器人不会取代人与人之间的温暖，但它们一定会让我们的校园生活更便利、更高效、更安全。"]],
+tips:[["side by side with","与……并肩"],["become reality","成为现实"],["based on our weak points","根据我们的薄弱环节"],["save sb. a great deal of time","为某人节省大量时间"],["will not…, but will certainly…","不会……，但一定会……，让结尾更有层次"]]},
+
+{type:"作文",exam:"2025年12月 第二套",title:"学术写作应成为必修课",
+ask:"有观点认为学术写作应该成为大学的必修课。请谈谈你的看法，并说明理由。",
+steps:["这是观点类议论文，题目自带观点。最稳的写法是表示赞同，再给两到三个理由。","开头先用半句话说明学术写作是什么（写论文、报告），让阅卷老师看出你理解了题目。","理由按「学业 → 思维 → 职业」由近到远排列，层次清楚。","每个理由后面加一句具体说明，比如很多学生不会正确引用资料。","结尾提一个建议：课程要结合不同专业的需要，这样观点更成熟。"],
+paras:[["Academic writing, such as writing research papers and reports, is a skill that every college student needs. In my opinion, it should be made a compulsory course in universities.","学术写作，比如写研究论文和报告，是每个大学生都需要的一项技能。在我看来，它应该成为大学的必修课。"],
+["To begin with, academic writing is closely related to our studies. Many courses require essays and a graduation thesis, yet a lot of students have never learned how to organize an argument or cite sources properly.","首先，学术写作和我们的学业密切相关。很多课程都要求写论文和毕业论文，然而很多学生从来没有学过如何组织论证或正确引用资料。"],
+["Moreover, it helps develop critical thinking. When we write academically, we must collect evidence, compare different views and draw our own conclusions instead of simply repeating what others say.","此外，它有助于培养批判性思维。进行学术写作时，我们必须收集证据、比较不同观点，并得出自己的结论，而不是简单重复别人的话。"],
+["Finally, the ability to write clearly will benefit our future careers. Whether we write a project proposal or a work report, clear and logical writing always makes a good impression.","最后，清晰写作的能力会让我们未来的职业受益。无论是写项目方案还是工作报告，清楚而有逻辑的文字总能给人留下好印象。"],
+["Therefore, universities should offer academic writing courses that meet the needs of different majors, so that every student can benefit from them.","因此，大学应该开设符合不同专业需求的学术写作课程，让每个学生都能从中受益。"]],
+tips:[["be made a compulsory course","被设为必修课"],["cite sources properly","正确引用资料"],["draw our own conclusions","得出自己的结论"],["instead of simply repeating…","而不是简单重复……"],["Whether… or…, …","无论……还是……，让句式更灵活"]]},
+
+{type:"作文",exam:"2025年12月 第三套",title:"更好地利用校内资源",
+ask:"有人认为大学生应该更积极地利用学校的各种资源。请写一篇文章，谈谈学生可以怎样更好地利用校内资源。",
+steps:["对策类议论文。开头点出问题：很多资源被闲置，然后转入「怎么做」。","「校内资源」很抽象，一定要写具体：图书馆、实验室、线上课程平台、老师的答疑时间。具体名词让文章更有说服力。","每段讲一种资源，结构是「资源是什么 + 怎么用 + 有什么好处」。","可以用对比打破常见印象：很多人只在考前去图书馆，其实它还能……","结尾号召大家主动行动，语气积极。"],
+paras:[["Universities offer students a wide range of resources, but many of them are not fully used. I believe we should make better use of what our campus provides.","大学为学生提供了丰富的资源，但其中很多没有被充分利用。我认为我们应该更好地利用校园提供的东西。"],
+["First of all, the library is more than a place to study for exams. Besides borrowing books, we can use its online databases, attend reading clubs and ask librarians for help with research.","首先，图书馆不只是考前复习的地方。除了借书，我们还可以使用它的在线数据库、参加读书会，以及向图书馆员寻求研究方面的帮助。"],
+["In addition, laboratories and online course platforms give us chances to learn beyond the classroom. Joining a lab project or taking an online course in another field can broaden our knowledge.","此外，实验室和线上课程平台让我们有机会在课堂之外学习。参加实验室项目，或者选修一门其他领域的网课，都能拓宽我们的知识面。"],
+["Most importantly, teachers' office hours are a valuable resource. Talking with professors face to face not only solves our problems but also helps us plan our studies and careers.","最重要的是，老师的答疑时间是一种宝贵的资源。与教授面对面交流不仅能解决我们的问题，还能帮助我们规划学业和职业。"],
+["In a word, campus resources are there for us. If we take the initiative to use them, our college years will be far more rewarding.","总之，校园资源就在那里等着我们。如果我们主动去利用，大学生活会更有收获。"]],
+tips:[["make better use of","更好地利用"],["more than a place to…","不只是……的地方"],["broaden our knowledge","拓宽知识面"],["not only… but also…","不仅……而且……"],["take the initiative to do","主动做某事"]]},
+
+{type:"作文",exam:"2025年6月 第一套",title:"大学语文应成为必修课",
+ask:"谈谈你对「大学语文应成为所有大学生必修课」这一观点的看法。",
+steps:["和「学术写作必修」是同一类题：一门课该不该必修。可以套用「表明立场 + 两三个理由 + 建议」的结构。","「大学语文」写成 College Chinese，第一次出现时用同位语解释它学什么（经典文学、实用写作）。","理由从「文化传承」和「语言能力」两个角度写，正好对应语文课的两大作用。","专门写一句「理工科学生也需要」，能体现你考虑得很全面。","最后提出课程要有趣、实用，不能只是背课文，这样观点不会显得绝对。"],
+paras:[["College Chinese, a course on classic literature and practical writing, is offered in many universities. In my view, it should be a compulsory course for all college students.","大学语文是一门讲授经典文学和实用写作的课程，许多大学都开设了这门课。在我看来，它应该成为所有大学生的必修课。"],
+["First, it helps pass on traditional Chinese culture. By reading classic poems and essays, students can understand the wisdom and values of our ancestors and feel proud of our culture.","第一，它有助于传承中华传统文化。通过阅读经典诗文，学生可以理解祖先的智慧和价值观，并为我们的文化感到自豪。"],
+["Second, it improves our ability to use our own language. Whether we write a report, make a speech or simply send an email, clear expression is essential. This is true even for science and engineering students.","第二，它能提升我们运用母语的能力。无论是写报告、做演讲，还是只是发一封邮件，清楚的表达都必不可少。对理工科学生来说也是如此。"],
+["Of course, the course should be interesting and practical rather than focusing only on memorizing texts. Only in this way can it truly benefit students.","当然，这门课应该有趣、实用，而不是只注重背诵课文。只有这样，它才能真正让学生受益。"],
+["In conclusion, College Chinese is valuable for every student, and universities should make it a required course.","总之，大学语文对每个学生都很有价值，大学应该把它列为必修课。"]],
+tips:[["pass on traditional culture","传承传统文化"],["the wisdom of our ancestors","祖先的智慧"],["This is true even for…","对……来说也是如此"],["rather than focusing only on…","而不是只注重……"],["Only in this way can…","只有这样才能……，倒装加分句"]]},
+
+{type:"作文",exam:"2025年6月 第三套",title:"培养跨文化交流能力",
+ask:"随着全球化的发展，跨文化交流能力越来越重要。请谈谈大学生可以怎样培养这种能力。",
+steps:["对策类议论文：开头一两句交代背景（全球化）和重要性，然后马上进入「怎么做」。","三条途径由易到难：上课学知识 → 线上交流 → 出国或参加国际志愿活动，层次自然。","「跨文化交流能力」是 intercultural communication skills，文中可以换成 communicate with people from different cultures，避免重复。","每条途径都要说明「能学到什么」，不要只罗列活动名称。","结尾强调「课堂 + 实践」，和开头呼应。"],
+paras:[["In today's globalized world, we have more and more chances to work and study with people from different cultures. Therefore, it is important for college students to develop intercultural communication skills.","在当今全球化的世界里，我们有越来越多的机会和来自不同文化的人一起工作和学习。因此，大学生培养跨文化交流能力很重要。"],
+["To start with, students can take courses on foreign cultures. Learning about other countries' history, customs and values helps us avoid misunderstandings and respect differences.","首先，学生可以选修关于外国文化的课程。了解其他国家的历史、习俗和价值观，能帮助我们避免误解、尊重差异。"],
+["What's more, the internet offers convenient ways to practice. Through online language exchanges, we can talk with foreign students and introduce Chinese culture to them at the same time.","其次，互联网提供了方便的练习方式。通过线上语言交换，我们可以和外国学生交流，同时向他们介绍中国文化。"],
+["Moreover, students who have the opportunity should study abroad or join international volunteer programs. Living in a different culture is the most direct way to learn how to communicate with people from other backgrounds.","此外，有机会的学生应该出国留学或参加国际志愿项目。在不同的文化中生活，是学习如何与其他背景的人交流最直接的方式。"],
+["In short, combining classroom learning with real practice is the key to becoming a good intercultural communicator.","总之，把课堂学习和实际锻炼结合起来，是成为一名优秀跨文化交流者的关键。"]],
+tips:[["intercultural communication skills","跨文化交流能力"],["avoid misunderstandings","避免误解"],["respect differences","尊重差异"],["the most direct way to…","……最直接的方式"],["combine A with B","把 A 和 B 结合起来"]]},
+
+{type:"作文",exam:"2024年12月 第一套",title:"快递行业对生活的影响",
+ask:"谈谈快递行业的发展对人们生活带来的影响。",
+steps:["「影响」类题目要写正反两面，只写好处会显得片面。正面可以多写一些。","正面：方便、改变购物习惯、创造就业；负面：包装垃圾。每个影响先一句话说清楚，再补一句例子。","讲「从过去到现在的变化」用现在完成时：has changed、has brought。","最后一段提出解决办法（可回收包装、回收纸箱），文章立意会更高。","例子贴近大学生活更自然，比如在校园快递站取包裹。"],
+paras:[["Over the past decade, the express delivery industry in China has grown rapidly. It has greatly changed the way we live and shop.","过去十年里，中国的快递行业发展迅速，极大地改变了我们的生活和购物方式。"],
+["On the one hand, express delivery has brought great convenience. With just a few clicks, we can buy almost anything and receive it within a day or two. Even college students can pick up parcels from all over the country at the campus delivery station. The industry has also created millions of jobs.","一方面，快递带来了极大的便利。只需点几下，我们几乎可以买到任何东西，并在一两天内收到。就连大学生也能在校园快递站取到来自全国各地的包裹。这个行业还创造了数以百万计的就业岗位。"],
+["On the other hand, it has caused environmental problems. Huge amounts of boxes, plastic bags and tape are thrown away every day, and most of them are not recycled.","另一方面，它也带来了环境问题。每天都有大量的纸箱、塑料袋和胶带被扔掉，而且大部分没有被回收。"],
+["To make the industry more sustainable, delivery companies should use recyclable packaging, and consumers can return boxes to collection points. Only when everyone takes action can we enjoy convenience without harming the environment.","为了让这个行业更可持续，快递公司应该使用可回收包装，消费者也可以把纸箱送回回收点。只有每个人都行动起来，我们才能在享受便利的同时不伤害环境。"]],
+tips:[["over the past decade","过去十年里"],["with just a few clicks","只需点几下"],["create millions of jobs","创造数以百万计的就业岗位"],["recyclable packaging","可回收包装"],["Only when… can…","只有……才……，倒装加分句"]]},
+
+{type:"作文",exam:"2024年12月 第二套",title:"保护和弘扬传统文化",
+ask:"谈谈应该如何保护和弘扬中国传统文化。",
+steps:["对策类议论文。开头先说为什么要保护：传统文化是民族认同的根，而且正在被遗忘。","措施按「谁来做」分层：学校、年轻人、对外交流。每一段的主体不同，内容就不会重复。","举具体例子会加分：书法课、介绍传统节日的短视频、海外展览演出。","题目有两层意思：protect 是保护，promote 是推广弘扬，两层都要写到。","结尾升华一句：既要守住传统，也要让它在现代生活里「活」起来。"],
+paras:[["Traditional Chinese culture is the root of our national identity. However, under the influence of fast-paced modern life, some traditions are gradually being forgotten. It is necessary for us to protect and promote them.","中华传统文化是我们民族认同的根基。然而，在快节奏现代生活的影响下，一些传统正逐渐被遗忘。我们有必要保护并弘扬它们。"],
+["First, schools should play a leading role. Courses such as calligraphy, traditional music and classic literature can help students understand the value of our culture from an early age.","第一，学校应该发挥主导作用。书法、传统音乐和经典文学等课程，能帮助学生从小理解我们文化的价值。"],
+["Second, young people can use new media to make traditions attractive. Short videos about traditional festivals or crafts often go viral and draw the attention of millions of viewers.","第二，年轻人可以借助新媒体让传统变得有吸引力。介绍传统节日或手工艺的短视频常常走红，吸引数百万观众的关注。"],
+["Third, cultural exchanges with other countries help spread our culture around the world. Exhibitions and performances abroad allow more people to appreciate the beauty of Chinese traditions.","第三，与其他国家的文化交流有助于把我们的文化传播到世界各地。在海外举办的展览和演出，让更多人能欣赏到中华传统的美。"],
+["In short, we should not only protect our traditions but also keep them alive in modern life.","总之，我们不仅要保护传统，还要让它们在现代生活中焕发活力。"]],
+tips:[["the root of our national identity","民族认同的根基"],["play a leading role","发挥主导作用"],["from an early age","从小"],["go viral","走红、爆火"],["keep… alive","让……保持活力"]]},
+
+{type:"作文",exam:"2024年12月 第三套",title:"学生如何参与绿色校园",
+ask:"学校正在建设绿色校园。请谈谈学生可以如何参与，为绿色校园出一份力。",
+steps:["题目问的是「学生」能做什么，所以主语始终是 students / we，不要大段写学校该做什么。","三条建议对应三个场景：食堂（减少浪费）、宿舍和教室（节约能源）、校园活动（提高意识），覆盖面广又不重复。","措施要小而具体：turn off the lights when we leave 比 protect the environment 有说服力得多。","加一句「每个人的小行动加起来就是大改变」，增强号召力。","表示建议多用 can / should，全文以一般现在时为主。"],
+paras:[["Building a green campus is not only the job of the university but also the responsibility of every student. There are many simple things we can do to help.","建设绿色校园不只是学校的工作，也是每个学生的责任。我们可以做很多简单的事情来出一份力。"],
+["First, we can reduce waste in daily life. Taking only as much food as we can eat in the canteen, using our own cups instead of disposable ones and sorting rubbish correctly all make a difference.","首先，我们可以在日常生活中减少浪费。在食堂吃多少拿多少，用自己的杯子代替一次性杯子，正确进行垃圾分类，这些都能带来改变。"],
+["Second, we should save energy in dormitories and classrooms. Turning off the lights and air conditioners when we leave is a small habit, but it can save a large amount of electricity.","其次，我们应该在宿舍和教室节约能源。离开时关掉灯和空调虽然是个小习惯，却能节省大量电力。"],
+["Third, students can raise environmental awareness on campus. Joining green clubs, organizing second-hand markets and planting trees can encourage more people to take part.","再次，学生可以在校园里提高环保意识。参加环保社团、组织二手市场、植树，都能鼓励更多人参与进来。"],
+["If each of us takes small actions every day, together we can turn our campus into a truly green home.","如果我们每个人每天都做一些小小的行动，我们就能一起把校园变成真正的绿色家园。"]],
+tips:[["not only the job of… but also the responsibility of…","不只是……的工作，也是……的责任"],["make a difference","带来改变、起作用"],["disposable cups","一次性杯子"],["raise environmental awareness","提高环保意识"],["turn A into B","把 A 变成 B"]]},
+
+{type:"翻译",exam:"2026年6月 第二套",title:"尊师重道",
+ask:"真题话题：中国尊敬老师的传统，涉及老师的作用、古代拜师的仪式、教师节的由来，以及这一美德的传承。下面是按这个话题原创的练习段落。",
+src:"中国人自古就有尊敬老师的传统。人们常说，老师不仅传授知识，还教学生如何做人。古时候，学生第一次拜见老师时要举行隆重的仪式，表达对老师的敬意。从1985年起，每年的9月10日被定为教师节。这一天，学生们会通过送贺卡、写感谢信等方式向老师表达感谢。尊师重道是中华民族的传统美德，在今天依然得到传承和发扬。",
+steps:["「自古就有……的传统」：have a long tradition of doing，比逐字翻译「自古」更简洁。","「教学生如何做人」：不要直译「做人」，意思是教学生做一个好人，译成 teach them how to be good people。","「拜见老师时要举行隆重的仪式」：古代的事用一般过去时，「……时」用 when 引导时间状语从句。","「从1985年起……被定为教师节」：since 1985 搭配现在完成时，中文的「被」对应英文被动语态 has been celebrated as。","「尊师重道」「传承和发扬」：意译为 respecting teachers and valuing education；「传承和发扬」两个词意思相近，用一个 be carried forward 就够了。"],
+answer:"The Chinese people have a long tradition of respecting teachers. As the saying goes, teachers not only pass on knowledge but also teach students how to be good people. In ancient times, when students met their teacher for the first time, they held a formal ceremony to show their respect. Since 1985, September 10th has been celebrated as Teachers' Day every year. On this day, students express their gratitude to their teachers in various ways, such as sending cards and writing thank-you letters. Respecting teachers and valuing education is a traditional virtue of the Chinese nation, and it is still being carried forward today.",
+tips:[["as the saying goes","俗话说"],["pass on knowledge","传授知识"],["formal ceremony","隆重的仪式"],["express gratitude to","向……表达感谢"],["traditional virtue","传统美德"]]},
+
+{type:"翻译",exam:"2025年12月 第二套",title:"民营经济的发展",
+ask:"真题话题：中国民营经济的发展，涉及政策支持、企业数量和占比、质量提升、研发投入，以及对经济的贡献。下面是按这个话题原创的练习段落。",
+src:"民营经济是中国经济的重要组成部分。近年来，政府出台了一系列政策支持民营企业发展。目前，民营企业的数量已占全国企业总数的九成以上。在数量增长的同时，民营企业的质量也在不断提高。许多企业加大研发投入，在信息技术、人工智能等领域发展迅速。民营经济为推动经济高质量发展、增加就业作出了重要贡献。",
+steps:["先记两个固定译法：民营经济 the private economy，民营企业 private enterprises。","「出台了一系列政策」：introduce a series of policies，「近年来」搭配现在完成时 has introduced。","「已占……九成以上」：account for more than 90% of，account for 是占比类句子最常用的动词。","「在数量增长的同时，质量也在提高」：用 While 引导，前后对照，一句话译完。","「加大研发投入」：中文是动宾结构，英文用名词 investment：increase investment in research and development。"],
+answer:"The private economy is an important part of China's economy. In recent years, the government has introduced a series of policies to support the development of private enterprises. Today, private enterprises account for more than 90% of all enterprises in the country. While their number is growing, their quality is also improving. Many of them have increased investment in research and development and made rapid progress in fields such as information technology and artificial intelligence. The private economy has made important contributions to promoting high-quality economic development and creating jobs.",
+tips:[["private enterprise","民营企业"],["account for","占（比例）"],["research and development (R&D)","研发"],["high-quality development","高质量发展"],["introduce a series of policies","出台一系列政策"]]},
+
+{type:"翻译",exam:"2025年12月 第三套",title:"绿色发展与生态改善",
+ask:"真题话题：中国的绿色经济和生态环境改善，涉及植树造林和治理污染、生态带来的经济效益、人与自然和谐共生的理念。下面是按这个话题原创的练习段落。",
+src:"近年来，中国大力发展绿色经济，生态环境明显改善。各地通过植树造林、治理污染等措施，让许多地方重现了绿水青山。良好的生态环境也带来了经济效益，带动了旅游、健康等产业的发展。人与自然和谐共生的理念已经深入人心。绿色发展不仅推动了中国的可持续发展，也为世界环境保护提供了有益的经验。",
+steps:["「绿水青山」：官方常用译法是 clear waters and green mountains，直接记住。","「让许多地方重现了……」：英文少用「让」字句，改成以地方作主语：many places have regained…","「带动了……产业的发展」：用现在分词 boosting… 接在前一句后面，句子更紧凑。","「理念已经深入人心」：不要直译「深入人心」，意思是被广泛接受，译成 has been widely accepted。","「不仅……也……」：not only… but also…，注意前后都接动词，结构要平行。"],
+answer:"In recent years, China has made great efforts to develop a green economy, and its ecological environment has improved significantly. Through measures such as planting trees and controlling pollution, many places have regained their clear waters and green mountains. A good environment has also brought economic benefits, boosting industries such as tourism and health care. The idea that humans should live in harmony with nature has been widely accepted. Green development has not only promoted China's sustainable development but also provided useful experience for environmental protection around the world.",
+tips:[["green economy","绿色经济"],["clear waters and green mountains","绿水青山"],["economic benefits","经济效益"],["live in harmony with nature","与自然和谐共生"],["sustainable development","可持续发展"]]},
+
+{type:"翻译",exam:"2025年6月 第二套",title:"冰雪大世界",
+ask:"真题话题：中国东北的冰雪旅游，涉及哈尔滨冰雪大世界、游客体验的冰雪景观和民俗，以及严寒变成旅游资源、带动经济。下面是按这个话题原创的练习段落。",
+src:"中国东北冬季漫长，冰雪资源丰富。过去，寒冷的天气让很多游客望而却步。如今，当地充分利用冰雪资源，大力发展冰雪旅游。哈尔滨的冰雪大世界每年都吸引大量游客前来参观。游客们不仅可以欣赏壮观的冰雕和雪雕，还能体验滑雪、滑冰等冰雪运动，感受东北独特的民俗文化。冰雪旅游已成为带动当地经济发展的重要力量。",
+steps:["「冰雪大世界」是专有名词：Harbin Ice and Snow World，每个实词首字母大写。","「让很多游客望而却步」：意思是让游客不敢来，用 keep many tourists away，比逐字翻译自然得多。","「过去……如今……」：前一句用一般过去时，后一句用一般现在时，时态对比要清楚。","「不仅可以欣赏……，还能体验……」：not only… but also…，两个动词 enjoy 和 experience 保持平行。","「成为……的重要力量」：a major driving force for…，driving force 是「推动力」的固定说法。"],
+answer:"Northeast China has long winters and rich ice and snow resources. In the past, the cold weather kept many tourists away. Today, the region makes full use of these resources to develop ice and snow tourism. Every year, Harbin Ice and Snow World attracts a large number of visitors. They can not only enjoy magnificent ice and snow sculptures, but also experience winter sports such as skiing and skating and learn about the unique folk culture of Northeast China. Ice and snow tourism has become a major driving force for the local economy.",
+tips:[["make full use of","充分利用"],["keep… away","使……不敢来"],["ice and snow sculptures","冰雕和雪雕"],["folk culture","民俗文化"],["driving force","推动力"]]},
+
+{type:"翻译",exam:"2025年6月 第三套",title:"15分钟便民生活圈",
+ask:"真题话题：城市里的「15分钟便民生活圈」，涉及步行可达的公共服务设施，以及它对居民生活质量和幸福感的提升。下面是按这个话题原创的练习段落。",
+src:"近年来，中国许多城市都在建设“15分钟便民生活圈”。在这样的生活圈里，居民步行15分钟就能到达超市、菜市场、公园、诊所和健身场所。老年人可以就近看病、锻炼身体，年轻人下班后也能方便地买菜、购物。便民生活圈让居民的生活更加便捷舒适，有效提升了人们的幸福感。",
+steps:["「15分钟便民生活圈」是新概念，加引号直译：“15-minute convenient living circles”，后文的描述会帮读者理解。","「步行15分钟就能到达」：within a 15-minute walk 是地道说法，注意 15-minute 中间有连字符，minute 不加 s。","「老年人可以……，年轻人也能……」：两类人对比，用 while 连成一句。","「就近看病」：意思是在家附近看医生，译成 see a doctor nearby。","「提升了幸福感」：幸福感用 sense of happiness，动词用 enhance 或 improve。"],
+answer:"In recent years, many cities in China have been building “15-minute convenient living circles”. In such a circle, residents can reach supermarkets, food markets, parks, clinics and fitness centers within a 15-minute walk. Elderly people can see a doctor and exercise nearby, while young people can easily buy groceries and go shopping after work. These living circles make residents' lives more convenient and comfortable, and have greatly enhanced their sense of happiness.",
+tips:[["within a 15-minute walk","步行15分钟内"],["residents","居民"],["fitness center","健身场所"],["buy groceries","买菜"],["sense of happiness","幸福感"]]},
+
+{type:"翻译",exam:"2024年12月 第一套",title:"新能源汽车",
+ask:"真题话题：中国新能源汽车产业，涉及产量和全球市场份额、出口、政府扶持和技术创新，以及对经济和环保的贡献。下面是按这个话题原创的练习段落。",
+src:"近年来，中国新能源汽车产业发展迅速。新能源汽车的年产量已接近一千万辆，占全球市场的六成以上，出口量也屡创新高。政府加大资金投入，出台政策鼓励企业进行技术创新，不断提升产品的市场竞争力。新能源汽车产业的发展不仅有力拉动了国内经济增长，也为全球能源转型和环境保护作出了积极贡献。",
+steps:["固定译法：新能源汽车 new energy vehicles，产业 industry。","「接近一千万辆」：nearly 10 million，大数字用阿拉伯数字加 million，不要写成 ten thousand thousand。","「占……，出口量也屡创新高」：前半句用 accounting for 作伴随状语，后半句 exports have hit record highs again and again。","「加大资金投入，出台政策鼓励……」：两个动作用 and 并列；「鼓励企业进行技术创新」用 encourage companies to make technological innovations。","「不仅……也……作出贡献」：not only… but also…，「作出贡献」用 make contributions to。"],
+answer:"In recent years, China's new energy vehicle industry has developed rapidly. The annual output of new energy vehicles has reached nearly 10 million, accounting for more than 60% of the global market, and exports have hit record highs again and again. The government has increased financial investment and introduced policies to encourage companies to make technological innovations, constantly improving the market competitiveness of their products. The development of this industry has not only boosted domestic economic growth, but also made positive contributions to the global energy transition and environmental protection.",
+tips:[["new energy vehicles","新能源汽车"],["annual output","年产量"],["hit record highs","创新高"],["technological innovation","技术创新"],["market competitiveness","市场竞争力"]]},
+
+{type:"翻译",exam:"2024年12月 第二套",title:"莫高窟数字展示中心",
+ask:"真题话题：敦煌莫高窟数字展示中心，涉及它的开放时间、用数字技术让游客先了解洞窟，以及这样做对保护文化遗产的意义。下面是按这个话题原创的练习段落。",
+src:"敦煌莫高窟是世界文化遗产。为了更好地保护这座艺术宝库，莫高窟数字展示中心于2014年正式开放。游客进入洞窟之前，可以先在展示中心通过电影和多媒体了解莫高窟的历史和艺术价值。这样既能让游客欣赏到精美的壁画，又能减少游客在洞窟内停留的时间，降低对文物的影响。数字技术让莫高窟得到了更好的保护和利用。",
+steps:["先准备专有名词：敦煌莫高窟 the Mogao Caves in Dunhuang，世界文化遗产 a World Cultural Heritage Site，壁画 murals，文物 cultural relics。","「为了更好地保护这座艺术宝库」：To better protect this treasure house of art 放句首，表示目的。","「于2014年正式开放」：过去的具体时间用一般过去时 was officially opened in 2014。","「既能……又能……，降低对文物的影响」：用 while 连接前两个动作，最后的结果用 which 补充，避免一句话塞太多主语。","「得到了更好的保护和利用」：中文的「得到」不必硬译，改成主动句：Digital technology has helped protect… and make better use of…"],
+answer:"The Mogao Caves in Dunhuang are a World Cultural Heritage Site. To better protect this treasure house of art, the Mogao Caves Digital Exhibition Center was officially opened in 2014. Before entering the caves, visitors can first learn about their history and artistic value through films and multimedia at the center. In this way, visitors can enjoy the beautiful murals while spending less time inside the caves, which reduces the impact on the cultural relics. Digital technology has helped protect the Mogao Caves and make better use of them.",
+tips:[["World Cultural Heritage Site","世界文化遗产"],["treasure house of art","艺术宝库"],["murals","壁画"],["cultural relics","文物"],["multimedia","多媒体"]]},
+
+{type:"翻译",exam:"2024年6月",title:"农历",
+ask:"真题话题：中国的农历，涉及它的起源和制定依据、在古代农业生产中的作用、传统节日的日期，以及至今仍被广泛使用。下面是按这个话题原创的练习段落。",
+src:"农历是中国传统的历法，已有两千多年的历史。它根据月亮的变化来确定月份，同时也考虑太阳的运动，因此能准确反映季节的变化。在古代，农民根据农历安排播种和收获。如今，春节、端午节、中秋节等传统节日的日期仍然按照农历来确定。农历是中国传统文化的重要组成部分，至今仍被广泛使用。",
+steps:["「农历」译成 the lunar calendar，「历法」就是 calendar。","「已有两千多年的历史」：用 with a history of more than 2,000 years 接在主句后面，不必另起一句。","「根据……来确定月份」：英文常用 be based on：Its months are based on the changes of the moon。「同时也考虑」用 take… into account。","「因此能准确反映……」表结果，用 so 连接，主语不变。","传统节日名称要大写，并带 the：the Spring Festival、the Dragon Boat Festival、the Mid-Autumn Festival。"],
+answer:"The lunar calendar is China's traditional calendar, with a history of more than 2,000 years. Its months are based on the changes of the moon, but it also takes the movement of the sun into account, so it can accurately reflect the changes of the seasons. In ancient times, farmers planned sowing and harvesting according to the lunar calendar. Today, the dates of traditional festivals such as the Spring Festival, the Dragon Boat Festival and the Mid-Autumn Festival are still set by the lunar calendar. As an important part of traditional Chinese culture, it is still widely used.",
+tips:[["lunar calendar","农历"],["take… into account","考虑……"],["sowing and harvesting","播种和收获"],["with a history of","有……的历史"],["be widely used","被广泛使用"]]},
+
+{type:"翻译",exam:"2024年6月",title:"四合院",
+ask:"真题话题：四合院，涉及它的建筑特点、冬暖夏凉的居住优势、北京四合院的代表性，以及在城市发展中数量减少但仍有重要意义。下面是按这个话题原创的练习段落。",
+src:"四合院是中国传统的民居形式，由四面房屋围绕一个院子建成，因此得名。四合院冬暖夏凉，院子里常常种着花草树木，环境安静舒适。中国很多地方都有四合院，其中北京的四合院最具代表性。随着城市的发展，四合院的数量越来越少，但它们对传承中国文化、研究中国历史仍具有重要意义。",
+steps:["文化词用「拼音 + 解释」：siheyuan, a traditional courtyard residence。第一次出现时解释，后面直接写 siheyuan。","「由……建成，因此得名」：先描述结构，再用 which is how it got its name 收尾。","「冬暖夏凉」拆开意译：warm in winter and cool in summer。","「其中北京的四合院最具代表性」：用 and those in Beijing are the most typical，those 指代前面的四合院，避免重复。","「对……具有重要意义」：be of great significance for，比 be very important 更正式。"],
+answer:"Siheyuan, a traditional courtyard residence, is a typical form of Chinese folk housing. It consists of houses built on four sides around a courtyard, which is how it got its name. A siheyuan is warm in winter and cool in summer, and flowers and trees are often planted in the courtyard, making it quiet and comfortable. Siheyuan can be found in many parts of China, and those in Beijing are the most typical. With the development of cities, the number of siheyuan has been decreasing, but they are still of great significance for passing on Chinese culture and studying Chinese history.",
+tips:[["courtyard residence","四合院式住宅"],["folk housing","民居"],["consist of","由……组成"],["warm in winter and cool in summer","冬暖夏凉"],["be of great significance","具有重要意义"]]},
+
+{type:"翻译",exam:"2024年6月",title:"春节贴福字",
+ask:"真题话题：春节贴「福」字的习俗，涉及福字的含义、写在红纸上表达美好祝愿，以及倒贴福字的寓意。下面是按这个话题原创的练习段落。",
+src:"“福”字是中国最常见的吉祥符号之一，代表幸福和好运。春节期间，人们喜欢把“福”字写在红纸上，贴在门上或墙上，表达对新年的美好祝愿。这一习俗已经流传了很长时间。有些人还会把“福”字倒着贴，因为“倒”和“到”发音相同，寓意幸福已经到来。",
+steps:["「福」字用拼音加解释：the character “fu”, meaning happiness and good fortune。","「吉祥符号」：auspicious symbol。auspicious 是文化题里「吉祥」的高频词，一定要会拼。","「写在红纸上，贴在门上」：write… on red paper and paste it on doors，注意两处介词都用 on。","「已经流传了很长时间」：has been passed down for a long time，现在完成时表示一直延续到今天。","「倒」和「到」同音：先解释读音再讲寓意，让外国读者也能看懂这个谐音。"],
+answer:"The character “fu”, meaning happiness and good fortune, is one of the most common auspicious symbols in China. During the Spring Festival, people like to write the character on red paper and paste it on doors or walls to express their good wishes for the new year. This custom has been passed down for a long time. Some people even paste the character upside down, because in Chinese the word for “upside down” sounds the same as the word for “arrive”. It means that happiness has arrived.",
+tips:[["auspicious symbol","吉祥符号"],["good fortune","好运"],["express good wishes for","表达对……的美好祝愿"],["be passed down","流传下来"],["upside down","倒着、颠倒"]]}
 ];
 
+const TIPS={
+"作文":[
+["先审题，再动笔","圈出题目的话题、文体和要求。要求里提到的每个方面都要写到，漏掉一个要点就很难进高分档。","题目说「从学习、生活、安全三方面写」，那就正好写三个主体段。"],
+["三段式最稳","开头 2—3 句点题表态，主体写 2—3 个分论点，结尾 2 句总结或提建议。字数写到 140—170 词，比卡着 120 词更安全。",""],
+["开头不要抄题","把题目换成自己的话再写。照抄原句显得词汇量小，阅卷老师一眼就能看出来。","make campus life more convenient → bring more convenience to our daily life on campus"],
+["分论点要展开","每个分论点先写一句主题句，再跟一句解释或例子。只罗列 First… Second… 不展开，内容会显得很空。",""],
+["连接词分清用途","顺序：First / In addition / Last but not least。转折：However / On the other hand。因果：As a result / Therefore。举例：For example / A case in point is…",""],
+["每段放一个亮点句","倒装、强调句、非谓语、not only… but also… 这类句型用对了，最能体现语言水平。","Only in this way can we…；It is our own thinking that…"],
+["准确比高级重要","没把握的难词不要用。最常见的扣分点是主谓一致、时态、名词单复数和冠词，写完逐句查这四样。",""],
+["应用文注意格式","建议信、回应文章开头交代身份和写作目的，结尾表达希望；校报投稿可以加标题。语气要和读者对象匹配。",""],
+["30 分钟这样分","审题和列提纲 5 分钟，写作 20 分钟，检查 5 分钟。提纲只写关键词，不要先打全文草稿。",""],
+["了解评分档次","作文按 15 分制评分，分 13—15、10—12、7—9、0—6 四档。内容完整切题、条理清楚、语法错误少，就能稳进 10 分以上的档次。",""]
+],
+"翻译":[
+["先通读，再分块","先把整段读一遍弄懂意思，再把每句切成几个意思块，一块一块地译，不要看一个字译一个字。",""],
+["先找主干","每句先定「谁做了什么」，也就是主语和谓语，再把时间、地点、方式等修饰成分挂上去。",""],
+["长句要断开","中文常常一逗到底，英文一句只有一个主干。在主语变化、出现「但是」「因此」或意思已经完整的地方断句。",""],
+["短句可以合并","主语相同的几个短句，可以用 and、which、doing 等合成一句，更像英文的表达习惯。","他打开门，发现屋里没人 → When he opened the door, he found no one inside."],
+["没有主语就补上或改被动","中文常省略主语，英文必须有。可以补上 people / we，或者改成被动语态。","要保护环境 → The environment should be protected."],
+["四字词意译","四字词不要逐字硬译，抓住核心意思就行。","冬暖夏凉 → warm in winter and cool in summer；深入人心 → be widely accepted"],
+["词性灵活转换","中文多用动词，英文多用名词和介词，适当转换会更地道。","加大投入 → increase investment"],
+["时态看时间词","介绍现状用一般现在时；「近年来」「已经」用现在完成时；古代习俗和历史事件用一般过去时。",""],
+["文化词：拼音 + 解释","第一次出现的文化词用拼音加简短解释；节日和专有名词首字母大写。","四合院 → siheyuan, a traditional courtyard residence"],
+["不会的词就绕开","想不起某个词时，用解释或意思相近的词代替。意思译到位就能得分，空着才真正丢分。","拜师仪式 → a ceremony held when students first met their teacher"],
+["最后 5 分钟检查","重点查主谓一致、单复数、冠词、拼写，以及全文时态是否统一。",""]
+]};
 
 const CORE=[3172, 2329, 3741, 605, 663, 925, 0, 2830, 3150, 881, 2363, 994, 1553, 592, 449, 1159, 1639, 3598, 473, 1070, 1550, 1564, 3258, 3755, 2736, 3401, 370, 492, 3210, 1228, 1502, 3416, 2133, 308, 403, 448, 856, 1992, 117, 617, 1957, 139, 302, 535, 3908, 1459, 2596, 407, 871, 902, 2393, 2554, 344, 2244, 4147, 194, 884, 812, 854, 1430, 1944, 2303, 3608, 753, 1814, 2145, 2511, 2543, 766, 622, 1548, 1607, 2324, 1813, 2682, 1151, 1080, 1480, 3360, 4046, 376, 823, 1905, 2700, 3298, 1893, 3149, 162, 164, 396, 651, 813, 974, 1591, 1940, 3419, 517, 710, 2426, 2630, 2933, 2969, 145, 498, 1192, 2180, 3644, 2066, 1054, 2414, 3440, 60, 213, 1030, 1433, 2017, 3152, 4003, 720, 745, 2746, 2984, 3062, 3389, 36, 40, 238, 796, 816, 1326, 1627, 2226, 2756, 2782, 3012, 3443, 3470, 3696, 232, 1442, 2035, 4000, 158, 401, 452, 1669, 2007, 3814, 918, 1082, 1849, 2639, 173, 1961, 2278, 2322, 364, 1628, 2567, 2841, 3883, 49, 231, 499, 658, 829, 907, 1048, 1069, 1561, 2619, 3990, 121, 122, 954, 1401, 2253, 3723, 4141, 35, 1253, 1901, 2070, 3047, 3631, 3698, 3736, 2488, 2771, 3153, 3728, 4033, 671, 738, 1354, 1403, 1958, 2323, 2486, 3446, 1050, 3341, 3458, 3732, 3940, 22, 572, 853, 1380, 2380, 2548, 2634, 2638, 3652, 3664, 385, 615, 1736, 2492, 2781, 2787, 3056, 3708, 3993, 340, 361, 723, 1618, 2425, 480, 586, 2463, 2602, 2809, 3001, 3751, 3972, 3976, 4001, 4188, 295, 532, 865, 894, 1140, 3313, 3807, 190, 211, 265, 325, 520, 568, 937, 1613, 2057, 2481, 3254, 4017, 283, 318, 822, 1024, 1262, 557, 675, 1022, 2769, 3127, 3802, 3956, 136, 367, 1431, 2083, 2441, 2545, 773, 1273, 1819, 1955, 2036, 3011, 14, 374, 1106, 1535, 2681, 3707, 188, 267, 342, 457, 468, 581, 1395, 1597, 3568, 4030, 508, 824, 1391, 2712, 3858, 3938, 179, 430, 601, 642, 837, 1108, 1240, 1378, 1409, 1863, 2776, 2975, 4066, 4176, 566, 1027, 1912, 2885, 3096, 4049, 296, 397, 1091, 1375, 1428, 2144, 2733, 2963, 3229, 3370, 3513, 3665, 4144, 67, 787, 1102, 1557, 1875, 2378, 2789, 3249, 3900, 6, 58, 143, 326, 729, 963, 1076, 1247, 1362, 2891, 3699, 7, 73, 612, 1406, 2362, 2517, 2795, 3003, 3175, 4099, 141, 439, 574, 619, 722, 1039, 1283, 1344, 1880, 2184, 3151, 4090, 23, 780, 803, 1633, 1696, 2210, 3035, 97, 133, 200, 237, 788, 1281, 1699, 2212, 2654, 2800, 2956, 3097, 4181, 217, 317, 422, 587, 702, 2468, 2644, 2847, 61, 467, 513, 515, 637, 882, 1129, 1130, 1204, 1529, 2096, 2115, 2183, 2410, 2827, 3623, 3975, 4015, 172, 252, 760, 892, 1761, 1856, 2113, 2420, 2729, 3540, 3941, 106, 363, 567, 740, 986, 1373, 1818, 2311, 2503, 2512, 2854, 3314, 3559, 3587, 24, 128, 241, 362, 751, 900, 1689, 2224, 2710, 3158, 3496, 199, 269, 303, 338, 630, 700, 819, 912, 946, 971, 1088, 1528, 1998, 2189, 2250, 3332, 3365, 4024, 4108, 433, 627, 680, 855, 1104, 1158, 1357, 2474, 2629, 3059, 3324, 3399, 3580, 3910, 349, 495, 1852, 2223, 2370, 2615, 2650, 2668, 2821, 2945, 3359, 3529, 3706, 359, 392, 698, 765, 1634, 1874, 2696, 2738, 3031, 3349, 3570, 3857, 157, 219, 224, 323, 488, 531, 838, 985, 1006, 1155, 1205, 1292, 1497, 1720, 2365, 2391, 2480, 2797, 3431, 3432, 3669, 3683, 180, 304, 314, 462, 833, 1074, 1325, 1662, 2022, 2358, 2500, 2807, 3259, 3317, 3410, 3447, 4153, 4184, 169, 255, 350, 445, 543, 583, 657, 683, 1234, 1486, 1838, 2122, 2182, 2246, 2476, 2544, 2642, 3089, 3386, 3780, 4095, 4098, 273, 470, 643, 767, 1658, 1737, 1882, 1943, 2519, 3036, 3368, 3533, 3566, 3586, 4067, 327, 588, 706, 911, 1642, 1759, 2116, 2327, 2364, 2518, 2559, 2861, 3320, 3336, 3453, 3492, 3680, 3764, 3815, 4094, 4178, 13, 555, 569, 1059, 1733, 1890, 2195, 2291, 2579, 2766, 3450, 3879, 509, 694, 1109, 1298, 1312, 1364, 1797, 2020, 2053, 2103, 2386, 2402, 3137, 3375, 3574, 3881, 380, 410, 447, 597, 916, 944, 1389, 1407, 1585, 1714, 1831, 1872, 1930, 2406, 2818, 2918, 2944, 4132, 37, 297, 432, 600, 786, 1263, 1400, 1558, 1664, 1915, 1973, 2071, 2404, 2757, 2810, 2874, 3695, 305, 820, 859, 1172, 1321, 1727, 2049, 2310, 2313, 2591, 2730, 2772, 2779, 3251, 181, 352, 486, 693, 730, 818, 966, 1269, 1476, 1712, 1984, 2283, 2499, 3039, 3204, 3520, 4025, 4154, 130, 151, 329, 341, 603, 620, 864, 1504, 1824, 2131, 2336, 2970, 3117, 3256, 3606, 3880, 4032, 161, 404, 551, 741, 904, 1064, 1092, 1127, 1543, 1581, 1753, 1879, 1903, 2056, 2442, 2902, 2979, 2996, 3348, 3661, 4009, 4146, 68, 144, 225, 638, 640, 775, 878, 903, 1783, 2099, 2444, 2835, 3165, 3398, 3622, 3679, 3821, 3914, 667, 1578, 1680, 2217, 2521, 2892, 3454, 3747, 3831, 92, 528, 530, 598, 743, 1287, 1464, 1525, 1716, 1791, 2069, 2242, 2540, 2609, 2633, 2812, 2864, 3170, 3286, 3842, 3934, 27, 59, 369, 384, 540, 668, 695, 975, 1174, 1178, 1425, 2151, 2347, 2379, 2743, 2943, 3518, 4006, 4149, 4175, 103, 104, 331, 491, 594, 696, 1121, 1843, 2198, 2238, 2683, 2708, 2826, 3006, 3331, 3388, 3494, 3596, 3744, 3948, 196, 260, 415, 905, 983, 1020, 1075, 1120, 1182, 1526, 1756, 1820, 2526, 2703, 3374, 3444, 3797, 3889, 4161, 4170, 87, 412, 472, 548, 599, 646, 808, 1571, 2213, 2296, 2377, 2515, 2516, 3113, 3403, 204, 236, 277, 441, 764, 867, 1079, 1475, 2047, 2153, 2239, 2337, 2528, 2587, 2829, 3091, 3253, 3536, 3549, 3806, 18, 21, 84, 146, 197, 245, 387, 573, 769, 940, 961, 1358, 1777, 1809, 2105, 2837, 3380, 3573, 3774, 4155, 83, 244, 501, 956, 1003, 1132, 1134, 1286, 1289, 1394, 1787, 1988, 2000, 2878, 3674, 3999, 4028, 533, 848, 1541, 1670, 1976, 2106, 2331, 2783, 3585, 3768, 3890, 3939, 115, 328, 378, 645, 792, 893, 928, 1044, 1632, 1650, 1835, 2107, 2584, 3224, 3592, 3715, 4041, 4113, 4166, 233, 272, 281, 377, 497, 795, 804, 847, 872, 891, 1238, 1681, 1782, 1792, 1847, 2285, 2590, 2722, 2788, 2910, 2986, 3198, 3611, 8, 149, 257, 313, 322, 398, 629, 692, 898, 926, 1049, 1089, 1530, 1864, 1921, 1923, 2292, 2494, 2725, 3023, 3356, 3591, 3762, 259, 554, 1374, 1908, 2206, 2641, 3016, 3118, 3173, 3278, 3491, 3588, 3624, 3847, 4004, 301, 379, 395, 485, 521, 755, 1173, 1317, 1812, 1815, 1828, 1953, 2199, 2840, 2886, 2903, 2904, 3299, 3913, 3916, 3925, 3978, 150, 209, 276, 1058, 1274, 1691, 1732, 1830, 1883, 2219, 2352, 2445, 2555, 2754, 3188, 3391, 30, 246, 690, 705, 845, 1672, 1855, 2305, 2326, 2606, 2820, 3140, 3159, 3191, 3367, 3627, 3655, 3800, 47, 426, 561, 756, 806, 995, 1012, 1125, 1136, 1620, 1786, 1825, 2272, 2501, 3922, 4157, 4159, 102, 482, 653, 660, 673, 879, 1190, 1346, 2130, 2201, 2216, 2225, 2228, 2456, 2909, 3268, 3648, 3866, 553, 831, 1241, 1282, 1288, 1343, 1483, 1531, 1598, 1738, 2149, 2334, 2676, 2937, 3004, 3126, 3163, 3361, 3766, 3767, 3783, 4087, 507, 534, 537, 716, 721, 733, 862, 1405, 1868, 1902, 2188, 2207, 2484, 2940, 2962, 2974, 3132, 3326, 17, 414, 562, 647, 654, 817, 981, 1110, 1365, 1645, 1993, 2044, 2082, 2264, 2491, 2955, 3279, 3378, 3551, 3927, 3981, 152, 212, 610, 850, 1146, 1657, 1794, 1994, 2058, 2927, 3020, 3397, 3429, 3471, 3562, 3681, 3984, 4093, 46, 185, 506, 811, 947, 1023, 1296, 1682, 1739, 1788, 1839, 2094, 2120, 2252, 2936, 3334, 3455, 3480, 3799, 3932, 55, 291, 478, 481, 544, 759, 1126, 1170, 1279, 2027, 2108, 2128, 2227, 2531, 2977, 3160, 3272, 3481, 3765, 3873, 288, 324, 337, 442, 518, 714, 752, 914, 959, 967, 1084, 1103, 1804, 2173, 2233, 2300, 2345, 2546, 2594, 2646, 2775, 2964, 3120, 3237, 3435, 3843, 3980, 4037, 4163, 356, 578, 656, 849, 888, 1040, 1056, 1161, 1310, 1522, 1774, 1906, 2390, 2987, 3030, 3284, 3333, 3672, 3742, 3785, 4085, 31, 80, 192, 550, 644, 679, 719, 736, 908, 920, 1115, 1478, 1677, 1718, 1959, 2093, 2170, 2901, 3138, 3853, 3885, 3920, 4027, 48, 287, 312, 400, 416, 906, 1611, 2190, 2890, 3273, 3544, 3615, 3876, 16, 251, 300, 446, 616, 681, 703, 707, 964, 980, 1010, 1035, 1384, 1583, 1781, 2692, 2777, 3041, 3103, 3187, 3192, 3338, 3377, 3422, 3649, 3789, 3823, 3982, 3992, 4082, 4133, 4162, 429, 436, 669, 852, 1068, 1111, 1334, 1635, 1747, 1937, 2042, 2055, 2067, 2234, 2462, 2534, 2566, 2773, 2898, 2915, 2951, 3177, 3366, 3457, 3507, 3595, 3892, 4126, 580, 708, 989, 1507, 1977, 2080, 2495, 2507, 2616, 3508, 3705, 3996, 94, 316, 762, 836, 1105, 1729, 1793, 2211, 2317, 3171, 3738, 4044, 52, 280, 336, 595, 1267, 1441, 1467, 1702, 1789, 2563, 2914, 3066, 3076, 3969, 19, 107, 483, 699, 941, 1337, 1385, 1708, 1936, 2431, 2834, 3078, 3346, 3383, 3417, 3464, 3640, 4065, 20, 66, 286, 391, 443, 519, 547, 565, 579, 691, 810, 869, 934, 992, 1124, 1150, 1424, 1605, 1724, 1816, 1974, 2304, 2663, 2817, 3073, 3542, 3621, 3670, 3684, 176, 186, 330, 538, 659, 747, 1260, 1539, 1621, 1640, 1655, 2021, 2033, 2172, 2508, 2653, 2887, 2952, 3266, 3371, 3490, 3532, 3703, 3777, 3953, 34, 71, 99, 120, 135, 477, 684, 932, 1175, 1207];
 const PER=20,PERCH=10;
@@ -520,7 +719,7 @@ const IDLE=["今天打几关？","每关 20 个词，先认识再闯关","点亮
 
 let V={tab:"map",ch:Math.floor(current()/PERCH)};
 let L=null,P=null;
-const X={mode:"zt",zf:"all",open:{},cn:{},rev:{},draft:{},vq:null,cz:null};
+const X={mode:"zt",zf:"all",zy:"all",tk:"作文",tipsOpen:false,open:{},cn:{},rev:{},draft:{},vq:null,cz:null};
 let AC;
 
 function tone(seq){
@@ -683,8 +882,9 @@ function renderPlay(){
   if(q.type==="cn")body=`<p class="qlabel">哪个单词是这个意思？</p><p class="qcn">${esc(q.w[2])}</p>${optsHTML(q,o=>`<span class="en">${esc(o[0])}</span>`)}`;
   if(q.type==="ph")body=`<p class="qlabel">短语填空：选出空格里的词</p><p class="qph">${esc(q.text).replace("____",`<span class="blank">____</span>`)}</p><p class="sub">${esc(q.cn)}</p>${optsHTML(q,o=>`<span class="en">${esc(o[0])}</span>`)}`;
   if(q.type==="sp")body=`<p class="qlabel">拼写出这个单词（首字母已给出）</p><p class="qcn">${esc(q.w[2])}</p>${phLine(q.w)}
-    <form class="spell" id="spf"><input id="spi" aria-label="输入单词" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="${esc(q.w[0][0])}${" _".repeat(Math.max(0,q.w[0].length-1))}" value="${P.ans?esc(P.ans.text):""}" ${P.ans?"disabled":""}><button class="btn main" ${P.ans?"disabled":""}>确定</button></form>`;
-  const fb=!P.ans?"":`<div class="fb ${P.ans.ok?"ok":"bad"}"><div>${P.ans.ok?`<b>${P.ans.msg}</b><span class="en">${esc(q.w[0])}</span> ${esc(q.w[2])}`:`<b>正确答案</b><span class="en">${esc(q.w[0])}</span> ${esc(q.w[2])}`}</div><button class="btn main" id="p-next">继续</button></div>`;
+    <form class="spell" id="spf"><input id="spi" aria-label="输入单词" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="${esc(q.w[0][0])}${" _".repeat(Math.max(0,q.w[0].length-1))}" value="${P.ans?esc(P.ans.text):""}" ${P.ans?"disabled":""}><button class="btn main" ${P.ans?"disabled":""}>确定</button></form>
+    ${P.ans?"":`<div class="sp-help"><span class="num">${q.w[0].length} 个字母</span><button class="hint-btn" id="sp-hint" type="button">提示：看答案（算错一次）</button></div><p class="err" id="sp-err" aria-live="polite"></p>`}`;
+  const fb=!P.ans?"":`<div class="fb ${P.ans.ok?"ok":"bad"}"><div>${P.ans.ok?`<b>${P.ans.msg}</b><span class="en">${esc(q.w[0])}</span> ${esc(q.w[2])}`:`<b>${P.ans.hint?"答案是":"正确答案"}</b><span class="en">${esc(q.w[0])}</span> ${esc(q.w[2])}${P.ans.hint?`<span class="num"> · 记一次错误，等下会再考</span>`:""}`}</div><button class="btn main" id="p-next">继续</button></div>`;
   $("#view").innerHTML=`
   <div class="play-top"><button class="icon" id="p-quit" aria-label="退出本关">✕</button><div class="meter" role="progressbar" aria-valuenow="${P.done}" aria-valuemax="${P.total}"><span style="width:${P.done/P.total*100}%"></span></div>${P.review?`<span class="live"><span class="lm">错误 ${P.miss} 次</span></span>`:liveStars()}</div>
   <div class="combo">${P.combo>=3?`连对 ×${P.combo}`:""}</div>
@@ -704,7 +904,8 @@ function answer(ok,info){
     P.combo=0;P.miss++;
     S.wrong[q.w[0]]=(S.wrong[q.w[0]]||0)+1;save();
     tone(SND.bad);
-    buddy("sad",!P.review&&STAR_CUT.includes(P.miss-1)?`错了 ${P.miss} 次，掉到 ${starsOf(P.miss)} 星了，稳住！`:pick(COMFORT));
+    if(info&&info.hint)buddy("sad",!P.review&&STAR_CUT.includes(P.miss-1)?`看了答案，掉到 ${starsOf(P.miss)} 星了`:"记住它，等下还会考你");
+    else buddy("sad",!P.review&&STAR_CUT.includes(P.miss-1)?`错了 ${P.miss} 次，掉到 ${starsOf(P.miss)} 星了，稳住！`:pick(COMFORT));
   }
   renderPlay();
   if(ok){const tk=q;setTimeout(()=>{if(P&&P.ans&&P.queue[0]===tk)next()},900)}
@@ -911,12 +1112,30 @@ function renderExam(){
   ({zt:renderZT,vq:renderVQ,cz:renderCZ})[X.mode]();
 }
 
+const examKey=s=>{const m=s.match(/(\d{4})年(\d{1,2})月/);return m?+m[1]*100+ +m[2]:0};
+const ZT_YEARS=[...new Set(ZT.map(z=>z.exam.slice(0,4)))].sort().reverse();
+
 function renderZT(){
-  const list=ZT.map((z,i)=>[z,i]).filter(([z])=>X.zf==="all"||z.type===X.zf);
+  const list=ZT.map((z,i)=>[z,i]).filter(([z])=>(X.zf==="all"||z.type===X.zf)&&(X.zy==="all"||z.exam.startsWith(X.zy))).sort((a,b)=>examKey(b[0].exam)-examKey(a[0].exam)||a[1]-b[1]);
+  const nW=ZT.filter(z=>z.type==="作文").length,nT=ZT.length-nW;
+  const tk=X.zf==="all"?X.tk:X.zf;
   $("#xb").innerHTML=`
-  <p class="note">精选 2025—2026 年四级考试的作文和翻译真题。题目要求根据考后回忆整理；范文、翻译练习原文和参考译文是按真题话题原创编写的，可以放心背诵模仿。完整真题试卷可在全国大学英语四、六级考试官网或学校图书馆获取。</p>
-  <div class="seg">${[["all","全部"],["作文","作文"],["翻译","翻译"]].map(([k,l])=>`<button data-zf="${k}" aria-pressed="${X.zf===k}">${l}</button>`).join("")}</div>
-  ${list.map(([z,i])=>ztCard(z,i)).join("")}`;
+  <p class="note">收录 2024—2026 年四级考试的作文和翻译真题话题。题目要求根据考后回忆整理；范文、翻译练习原文和参考译文是按真题话题原创编写的，可以放心背诵模仿。完整真题试卷可在全国大学英语四、六级考试官网或学校图书馆获取。</p>
+  <div class="zt-filters">
+    <div class="seg">${[["all",`全部 ${ZT.length}`],["作文",`作文 ${nW}`],["翻译",`翻译 ${nT}`]].map(([k,l])=>`<button data-zf="${k}" aria-pressed="${X.zf===k}">${l}</button>`).join("")}</div>
+    <div class="seg">${[["all","全部年份"],...ZT_YEARS.map(y=>[y,y])].map(([k,l])=>`<button data-zy="${k}" aria-pressed="${X.zy===k}">${l}</button>`).join("")}</div>
+  </div>
+  <div class="zt-wrap">
+    <section class="tipbox ${X.tipsOpen?"open":""}" aria-label="答题技巧">
+      <div class="tips-head">
+        <b class="fun">${tk}技巧</b>
+        ${X.zf==="all"?`<div class="seg sm">${["作文","翻译"].map(k=>`<button data-tk="${k}" aria-pressed="${tk===k}">${k}</button>`).join("")}</div>`:""}
+        <button class="ghost tips-toggle" id="tips-toggle" aria-expanded="${!!X.tipsOpen}">${X.tipsOpen?"收起":`展开 ${TIPS[tk].length} 条`}</button>
+      </div>
+      <ol class="tips-body">${TIPS[tk].map(t=>`<li><b>${esc(t[0])}</b><span>${esc(t[1])}</span>${t[2]?`<span class="eg">${esc(t[2])}</span>`:""}</li>`).join("")}</ol>
+    </section>
+    <div class="zt-list">${list.length?list.map(([z,i])=>ztCard(z,i)).join(""):`<div class="empty">这个年份暂时没有${X.zf==="all"?"":X.zf}题目，换个筛选试试。</div>`}</div>
+  </div>`;
 }
 
 function ztCard(z,i){
@@ -1020,6 +1239,8 @@ document.addEventListener("click",e=>{
   if(d.am){ACC.mode=d.am;ACC.err="";accModal();return}
   if(d.x){X.mode=d.x;renderExam();return}
   if(d.zf){X.zf=d.zf;renderZT();return}
+  if(d.zy){X.zy=d.zy;renderZT();return}
+  if(d.tk){X.tk=d.tk;renderZT();return}
   if(d.zo!==undefined){X.open[d.zo]=!X.open[d.zo];renderZT();return}
   if(d.zc!==undefined){X.cn[d.zc]=!X.cn[d.zc];renderZT();return}
   if(d.zs!==undefined||d.za!==undefined){const k=d.zs??d.za,r=X.rev[k]=X.rev[k]||{};if(d.zs!==undefined)r.s=!r.s;else r.a=!r.a;renderZT();return}
@@ -1054,10 +1275,12 @@ document.addEventListener("click",e=>{
     case "l-next":L.i=(L.i+1)%lvWords(L.lv).length;renderLearn();break;
     case "go-play":startPlay(lvWords(L.lv),L.lv);break;
     case "p-next":next();break;
+    case "sp-hint":answer(false,{text:"",hint:true});break;
     case "p-quit":P=null;V.tab="map";render();buddy("","下次接着来");break;
     case "m-next":closeModal();openLevel(P.lv+1);break;
     case "m-retry":closeModal();startPlay(P.words,P.lv,P.review);break;
     case "m-map":closeModal();V.tab=P.review?"wrong":"map";V.ch=Math.floor(current()/PERCH);P=null;render();break;
+    case "tips-toggle":X.tipsOpen=!X.tipsOpen;renderZT();break;
     case "vq-sets":X.vq=null;renderVQ();break;
     case "vq-hint":{const s=X.vq,q=VQ[s.order[s.i]];s.hint++;s.hints++;if(s.hint===2)s.out=shuffle(s.opts.map((o,k)=>o===q[1]?-1:k).filter(k=>k>-1)).slice(0,2);renderVQ();break}
     case "vq-next":{const s=X.vq;s.i++;s.pick=null;s.opts=null;s.hint=0;s.out=[];renderVQ();if(s.i>=s.order.length&&s.score>=8){tone(SND.win);confetti();buddy("dance",`${s.score} 分！太稳了`)}break}
@@ -1074,6 +1297,7 @@ document.addEventListener("click",e=>{
 
 document.addEventListener("input",e=>{
   if(e.target.dataset.zd!==undefined)X.draft[e.target.dataset.zd]=e.target.value;
+  if(e.target.id==="spi"&&$("#sp-err"))$("#sp-err").textContent="";
 });
 
 document.addEventListener("submit",e=>{
@@ -1081,7 +1305,7 @@ document.addEventListener("submit",e=>{
   if(e.target.id!=="spf")return;
   e.preventDefault();
   const q=P.queue[0],v=$("#spi").value.trim();
-  if(!v)return;
+  if(!v){$("#sp-err").textContent="先输入单词，或者点「看答案」";return}
   answer(v.toLowerCase()===q.w[0].toLowerCase(),{text:v});
 });
 
